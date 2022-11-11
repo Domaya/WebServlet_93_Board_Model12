@@ -54,7 +54,16 @@
 					</tr>
 					<tr height="100">
 						<td width="20%" align="center"><b>글내용</b></td>
-						<td colspan="3">${fn:replace(board.content, newLineChar,"<br>")}</td>
+	                  <td colspan="3">
+	                  <c:if test="${board.filesystemname != null }">
+	                     <img style="width:250px; height:auto" id="contentimg" alt="image not loading" src="upload/${board.filesystemname }"><br>
+	                  </c:if>
+							${fn:replace(board.content, newLineChar,"<br>")}</td>
+						</tr>
+					<tr>
+						<td colspan = "4">
+							파일명 :${filesystemname} || <a href="upload/${filesystemname}">크게 보기</a>
+						</td>
 					</tr>
 					<tr>
 						<td colspan="4" align="center"><a
