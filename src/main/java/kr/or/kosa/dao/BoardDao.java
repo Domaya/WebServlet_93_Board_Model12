@@ -34,8 +34,8 @@ public class BoardDao {
 		int row = 0;
 		try {
 			conn = ds.getConnection();
-			String sql="insert into jspboard(idx, writer, pwd, subject, content, email, homepage, writedate, readnum,filename,filesize,refer)"+ 
-					   " values(jspboard_idx.nextval,?,?,?,?,?,?,sysdate,0,?,0,?)";
+			String sql="insert into jspboard(idx, writer, pwd, subject, content, email, homepage, writedate, readnum,filename,filesize,refer,filesystemname)"+ 
+					   " values(jspboard_idx.nextval,?,?,?,?,?,?,sysdate,0,?,0,?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, boarddata.getWriter());
@@ -45,6 +45,7 @@ public class BoardDao {
 			pstmt.setString(5, boarddata.getEmail());
 			pstmt.setString(6, boarddata.getHomepage());
 			pstmt.setString(7, boarddata.getFilename());
+			pstmt.setString(9, boarddata.getFilesystemname());
 			
 			//계층형 게시판
 			//refer(참조값) , step , depth
@@ -268,7 +269,9 @@ public class BoardDao {
 				int step = rs.getInt("step");
 				int depth = rs.getInt("depth");
 				
-				board = new Board(idx, writer, pwd, subject, content, writedate, readnum, filename, filesize, homepage, email, refer, depth, step);
+				String filesystemname = rs.getString("filesystemname");
+				
+				board = new Board(idx, writer, pwd, subject, content, writedate, readnum, filename, filesize, homepage, email, refer, depth, step, filesystemname);
 			}
 			
 		} catch (Exception e) {
