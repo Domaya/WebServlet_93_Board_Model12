@@ -12,6 +12,7 @@ public class Board {  //SELECT * FROM jspboard
 	private int readnum;    //default 0
 	
 	private String filename;
+	private String filesystemname;
 	private int filesize;
 	private String homepage;
 	private String email;
@@ -25,7 +26,7 @@ public class Board {  //SELECT * FROM jspboard
 	public Board() {}
 
 	public Board(int idx, String writer, String pwd, String subject, String content, Date writedate, int readnum,
-			String filename, int filesize, String homepage, String email, int refer, int depth, int step) {
+			String filename, int filesize, String homepage, String email, int refer, int depth, int step, String filesystemname) {
 		super();
 		this.idx = idx;
 		this.writer = writer;
@@ -41,6 +42,7 @@ public class Board {  //SELECT * FROM jspboard
 		this.refer = refer;
 		this.depth = depth;
 		this.step = step;
+		this.filesystemname = filesystemname;
 	}
 
 	public int getIdx() {
@@ -126,6 +128,10 @@ public class Board {  //SELECT * FROM jspboard
 	public String getEmail() {
 		return email;
 	}
+	public String getFilesystemname() {
+		return filesystemname;
+	}
+	
 
 	public void setEmail(String email) {
 		this.email = email;
@@ -146,6 +152,9 @@ public class Board {  //SELECT * FROM jspboard
 	public void setDepth(int depth) {
 		this.depth = depth;
 	}
+	public void setFilesystemname(String filesystemname) {
+		this.filesystemname = filesystemname;
+	}
 
 	public int getStep() {
 		return step;
@@ -163,7 +172,9 @@ public class Board {  //SELECT * FROM jspboard
 				+ ", filesize=" + filesize + ", homepage=" + homepage + ", email=" + email + ", refer=" + refer
 				+ ", depth=" + depth + ", step=" + step + "]";
 	}
-	
+
+
+
 	
 	
 	
