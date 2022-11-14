@@ -22,6 +22,8 @@ public class Board {  //SELECT * FROM jspboard
 	private int refer;//글의 묶음
 	private int depth;//글의 들여쓰기
 	private int step;//글의 순서
+	
+	//공지사항 String notice; 나중에 추가하기
 
 	public Board() {}
 
