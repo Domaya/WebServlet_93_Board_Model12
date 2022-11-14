@@ -22,6 +22,7 @@ import kr.or.kosa.service.Board_rewrite_service;
 import kr.or.kosa.service.Board_rewriteok_service;
 import kr.or.kosa.service.Board_writeok_service;
 import kr.or.kosa.service.board_replyok_service;
+import kr.or.kosa.service.file_download_service;
 
 
 @WebServlet("*.do")
@@ -107,6 +108,11 @@ public class BoardController extends HttpServlet {
 		}else if(urlcommand .equals("/boardreply_deleteOk.do")) { ///////////////////////완
 			//댓글 삭제
 			action = new Board_replydeleteok_service()	;
+			forward = action.execute(request, response);
+			
+		}else if(urlcommand.equals("/file_download.do")) {
+			//파일 다운로드
+			action = new file_download_service();
 			forward = action.execute(request, response);
 		}
 		//else if(urlcommand == "redirect.do") {

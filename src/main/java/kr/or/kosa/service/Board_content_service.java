@@ -59,6 +59,7 @@ public class Board_content_service implements Action {
 			//System.out.println(board);
 			
 			request.setAttribute("board", board);
+			request.setAttribute("filename", board.getFilename());
 			request.setAttribute("filesystemname", board.getFilesystemname());
 			request.setAttribute("idx", idx);
 			request.setAttribute("cp", cpage);
