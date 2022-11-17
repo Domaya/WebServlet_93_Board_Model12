@@ -35,7 +35,7 @@
 		//POOL에 connection 받환하기
 		conn.close(); //반환하기
 		
-		out.print("db 연결여부 : " + conn.isClosed() + "<br>");
+		out.print("db 연결여부 conn.close()이후: " + conn.isClosed() + "<br>");
 		%>
 	</div>
 </body>
